@@ -40,10 +40,10 @@ public class Main {
 
 	public static void header() {
         //The before chart header
-        displayDashes(90);
+        displayDashes(60);
         System.out.println();
-        System.out.println("Welcome to What's for Dinner");
-        displayDashes(90);
+        System.out.println("\t\tWelcome to What's for Dinner");
+        displayDashes(60);
         System.out.println();
     }
 	
