@@ -21,11 +21,13 @@ public class Main {
 	        
 	        if(answer == 1) {
 	        	System.out.println();
-	        	System.out.println("Under construction for getting food");
+	        	out.forMain();
+	        	//out.testingArray();
 	        }
 	        else if(answer == 2) {
 	        	System.out.println();
-	        	System.out.println("Under construction for cooking");
+	        	home.forMain();
+	        	//home.testingArray();
 	        }
 	        else {
 	        	System.out.println();

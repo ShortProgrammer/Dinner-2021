@@ -1,4 +1,8 @@
 //File associated with this class: Going Out
+
+import java.io.*;
+import java.util.*;
+
 public class EatingOut {
 	/* The Plan:
 	 * Get info from file and save into an string array
@@ -14,17 +18,56 @@ public class EatingOut {
 	public EatingOut(){ 
 		//Gets info from file
 		//Get size of file
+		File file = new File(".\\src\\GoingOut");
+        Scanner inputStream = null;
+        foodArray = new String[100];
+        
+		try {
+			inputStream = new Scanner(new FileInputStream(file));
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("The file you entered was not found");
+            System.out.println("or could not be opened.");
+            System.exit(0);
+        }
+		
+		String line = null;
+        
+        //Counts the number of lines, words, and characters
+        while(inputStream.hasNextLine()) {
+            try {
+                line = inputStream.nextLine();
+                foodArray[size] = line;
+                size++;
+            }
+            catch(InputMismatchException e) {
+                System.out.println("There is a problem.");
+            }
+        }
+        inputStream.close();
 	}
+	
+//	public void testingArray() {
+//		for(int i = 0; i < size; i++) {
+//			System.out.println(foodArray[i]);
+//		}
+//	}
 	
 	//Generates random number
 	public void generator() {
 		//Gets random number
+		Random ran = new Random();
+		randomNumber = ran.nextInt(size);
 	}
 	
 	//Returns a place to main
-	public String forMain() {
+	public void forMain() {
 		generator(); //To get the random number
+		
 		//Find the place that goes with the number
-		return answer;
+		answer = foodArray[randomNumber];
+		
+		//Prints answer
+		System.out.println(answer);
 	}
 }
