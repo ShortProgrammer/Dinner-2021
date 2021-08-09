@@ -9,7 +9,7 @@ public class EatingOut {
 	 * Choose random number
 	 * Send whatever number corresponds with that place to Main 
 	 */
-	private String[] foodArray;
+	private ArrayList<String> foodArray;
 	private int randomNumber;
 	private String answer;
 	private int size;
@@ -20,7 +20,7 @@ public class EatingOut {
 		//Get size of file
 		File file = new File(".\\src\\GoingOut");
         Scanner inputStream = null;
-        foodArray = new String[100];
+        foodArray = new ArrayList<String>();
         
 		try {
 			inputStream = new Scanner(new FileInputStream(file));
@@ -37,7 +37,7 @@ public class EatingOut {
         while(inputStream.hasNextLine()) {
             try {
                 line = inputStream.nextLine();
-                foodArray[size] = line;
+                foodArray.add(line);
                 size++;
             }
             catch(InputMismatchException e) {
@@ -49,7 +49,7 @@ public class EatingOut {
 	
 //	public void testingArray() {
 //		for(int i = 0; i < size; i++) {
-//			System.out.println(foodArray[i]);
+//			System.out.println(foodArray.get(i));
 //		}
 //	}
 	
@@ -65,7 +65,7 @@ public class EatingOut {
 		generator(); //To get the random number
 		
 		//Find the place that goes with the number
-		answer = foodArray[randomNumber];
+		answer = foodArray.get(randomNumber);
 		
 		//Prints answer
 		System.out.println(answer);
